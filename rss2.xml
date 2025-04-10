@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0"
+  xmlns:atom="http://www.w3.org/2005/Atom"
+  xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>persistencelzx&#39;s blog</title>
+    <link>http://example.com/</link>
+    
+    <atom:link href="http://example.com/rss2.xml" rel="self" type="application/rss+xml"/>
+    
+    <description>梦想是去NUS读博</description>
+    <pubDate>Thu, 10 Apr 2025 16:50:27 GMT</pubDate>
+    <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>Hello My Blog</title>
+      <link>http://example.com/2025/04/10/hello-world/</link>
+      <guid>http://example.com/2025/04/10/hello-world/</guid>
+      <pubDate>Thu, 10 Apr 2025 11:38:24 GMT</pubDate>
+      
+        
+        
+      <description>&lt;p&gt;搞了一下午，可算把博客简单搭建完成并且进行了一定程度的优化（虽然看起来还是毛坯房。。。）不过还是挺有成就感的hhh。&lt;/p&gt;
+&lt;p&gt;目前的计划是在自己的博客上更新一些日常感想以及学习记录。&lt;/p&gt;
+&lt;p&gt;突然发现也不知道写点啥，今天就到这吧，我要去练肩了。&lt;/p&gt;
+&lt;hr&gt;</description>
+        
+      
+      
+      
+      <content:encoded><![CDATA[<p>搞了一下午，可算把博客简单搭建完成并且进行了一定程度的优化（虽然看起来还是毛坯房。。。）不过还是挺有成就感的hhh。</p><p>目前的计划是在自己的博客上更新一些日常感想以及学习记录。</p><p>突然发现也不知道写点啥，今天就到这吧，我要去练肩了。</p><hr><p>本来打算健身回来把第一次博客再好好写一下，结果中途出了点事情耽搁了。</p><p>简单介绍一下吧，本人目前就读于上海某高校数据科学与大数据技术专业，2026年毕业，每天的日常就是吃饭，睡觉，学习，健身。由于我走的是保研这条路，所以现在还在写论文，研究方向为水文和人工智能的交叉应用。在后续的这段日子，我会在博客上更新一些日常的杂七杂八感想和学习记录。博客刚搭起来所以还有点毛坯，后面会慢慢优化的。我的邮箱和X也放在博客上，欢迎志同道合的人一起交流。</p><p>梦想是去NUS读博，共勉。</p>]]></content:encoded>
+      
+      
+      
+      
+      <comments>http://example.com/2025/04/10/hello-world/#disqus_thread</comments>
+      
+    </item>
+    
+  </channel>
+</rss>
