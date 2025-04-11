@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2025-04-10T16:50:27.821Z</updated>
+  <updated>2025-04-11T05:41:10.190Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>test</title>
+    <link href="http://example.com/2025/04/11/test/"/>
+    <id>http://example.com/2025/04/11/test/</id>
+    <published>2025-04-11T05:39:42.000Z</published>
+    <updated>2025-04-11T05:41:10.190Z</updated>
+    
+    <content type="html"><![CDATA[<p>这是一篇测试用的博客</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;这是一篇测试用的博客&lt;/p&gt;
+</summary>
+      
+    
+    
+    
+    
+    <category term="test" scheme="http://example.com/tags/test/"/>
+    
+  </entry>
   
   <entry>
     <title>Hello My Blog</title>
@@ -35,29 +58,6 @@
       
     
     
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Hello My Blog</title>
-    <link href="http://example.com/2025/04/10/test/"/>
-    <id>http://example.com/2025/04/10/test/</id>
-    <published>2025-04-09T16:00:00.000Z</published>
-    <updated>2025-04-11T05:36:32.335Z</updated>
-    
-    <content type="html"><![CDATA[<p>这是一条测试用的博客</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;这是一条测试用的博客&lt;/p&gt;
-</summary>
-      
-    
-    
-    
-    <category term="test" scheme="http://example.com/categories/test/"/>
     
     
   </entry>
