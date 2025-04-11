@@ -39,4 +39,27 @@
     
   </entry>
   
+  <entry>
+    <title>Hello My Blog</title>
+    <link href="http://example.com/2025/04/10/test/"/>
+    <id>http://example.com/2025/04/10/test/</id>
+    <published>2025-04-09T16:00:00.000Z</published>
+    <updated>2025-04-11T05:36:32.335Z</updated>
+    
+    <content type="html"><![CDATA[<p>这是一条测试用的博客</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;这是一条测试用的博客&lt;/p&gt;
+</summary>
+      
+    
+    
+    
+    <category term="test" scheme="http://example.com/categories/test/"/>
+    
+    
+  </entry>
+  
 </feed>
