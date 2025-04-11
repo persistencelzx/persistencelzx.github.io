@@ -4,31 +4,18 @@
   
     
     <entry>
-      <title>test</title>
-      <link href="/2025/04/11/test/"/>
-      <url>/2025/04/11/test/</url>
-      
-        <content type="html"><![CDATA[<p>这是一篇测试用的博客</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;hello world&#x27;</span>)</span><br></pre></td></tr></table></figure>]]></content>
-      
-      
-      
-        <tags>
-            
-            <tag> test </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>Hello My Blog</title>
       <link href="/2025/04/10/hello-world/"/>
       <url>/2025/04/10/hello-world/</url>
       
-        <content type="html"><![CDATA[<p>搞了一下午，可算把博客简单搭建完成并且进行了一定程度的优化（虽然看起来还是毛坯房。。。）不过还是挺有成就感的hhh。</p><p>目前的计划是在自己的博客上更新一些日常感想以及学习记录。</p><p>突然发现也不知道写点啥，今天就到这吧，我要去练肩了。</p><hr><p>本来打算健身回来把第一次博客再好好写一下，结果中途出了点事情耽搁了。</p><p>简单介绍一下吧，本人目前就读于上海某高校数据科学与大数据技术专业，2026年毕业，每天的日常就是吃饭，睡觉，学习，健身。由于我走的是保研这条路，所以现在还在写论文，研究方向为水文和人工智能的交叉应用。在后续的这段日子，我会在博客上更新一些日常的杂七杂八感想和学习记录。博客刚搭起来所以还有点毛坯，后面会慢慢优化的。我的邮箱和X也放在博客上，欢迎志同道合的人一起交流。</p><p>梦想是去NUS读博，共勉。</p>]]></content>
+        <content type="html"><![CDATA[<p>大家好！这是我的第一篇博客！</p><p>简单介绍一下吧，本人目前就读于上海某高校数据科学与大数据技术专业，2026年毕业，每天的日常就是吃饭，睡觉，学习，健身。由于我走的是保研这条路，所以现在还在写论文，研究方向为水文和人工智能的交叉应用。不过现在的水平只能将人工智能当作一个工具（调包大师），闲下来的时候也有在系统的学习AI方面的知识（统计学习方法和李沐老师的动手学深度学习）。</p><p>在后续的这段日子，我会在博客上更新一些日常的杂七杂八感想和学习记录。博客刚搭起来所以还有点毛坯，后面会慢慢优化的。我的邮箱也放在博客上，欢迎志同道合的人一起交流。</p><p>梦想是去NUS读博，共勉。</p>]]></content>
       
+      
+      <categories>
+          
+          <category> Hello Blog </category>
+          
+      </categories>
       
       
     </entry>
