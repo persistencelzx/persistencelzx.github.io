@@ -1,6 +1,6 @@
 # NexT theme overrides. Keep custom settings here so theme upgrades remain safe.
 scheme: Gemini
-darkmode: true
+darkmode: false
 
 menu:
   home: / || fa fa-home
