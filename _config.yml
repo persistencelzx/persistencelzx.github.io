@@ -98,6 +98,11 @@ ignore:
 ## Themes: https://hexo.io/themes/
 theme: next
 
+# Markdown renderer configuration for MathJax-compatible output.
+pandoc:
+  args:
+    - --mathjax
+
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:

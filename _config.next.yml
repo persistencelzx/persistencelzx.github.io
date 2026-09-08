@@ -21,6 +21,15 @@ footer:
   since: 2026
   powered: true
 
+math:
+  every_page: false
+  mathjax:
+    enable: true
+    tags: none
+    display_overflow: scroll
+  katex:
+    enable: false
+
 back2top:
   enable: true
   sidebar: false

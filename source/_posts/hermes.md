@@ -1,6 +1,7 @@
 ---
 title: “HERMES”
 date: 2026-01-08 17:29:01
+mathjax: true
 tags:
 ---
 

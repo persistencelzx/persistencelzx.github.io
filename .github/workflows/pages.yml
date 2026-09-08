@@ -28,11 +28,20 @@ jobs:
           node-version: 22
           cache: npm
 
+      - name: Update package index
+        run: sudo apt-get update
+
+      - name: Install Pandoc
+        run: sudo apt-get install --yes pandoc
+
       - name: Install dependencies
         run: npm ci
 
       - name: Build
         run: npm run build
+
+      - name: Verify math rendering
+        run: npm run test:math
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
