@@ -1,0 +1,37 @@
+# NexT theme overrides. Keep custom settings here so theme upgrades remain safe.
+scheme: Gemini
+darkmode: true
+
+menu:
+  home: / || fa fa-home
+  archives: /archives/ || fa fa-archive
+
+menu_settings:
+  icons: true
+  badges: true
+
+sidebar:
+  position: left
+  display: post
+
+social:
+  GitHub: https://github.com/persistencelzx || fab fa-github
+
+footer:
+  since: 2026
+  powered: true
+
+back2top:
+  enable: true
+  sidebar: false
+  scrollpercent: true
+
+motion:
+  enable: true
+  async: false
+  transition:
+    post_block: fadeIn
+    post_header: fadeInDown
+    post_body: fadeInDown
+    coll_header: fadeInLeft
+    sidebar: fadeInUp
