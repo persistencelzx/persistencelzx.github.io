@@ -5,11 +5,11 @@ const check = (condition, message) => {
 };
 
 (async () => {
-  const html = await readFile('public/posts/hermes/index.html', 'utf8');
+  const html = await readFile('public/posts/ORION/index.html', 'utf8');
 
   check(/class="math (?:inline|display)"/.test(html), 'Math markup was not generated');
-  check(html.includes('\\mathcal{F}_t'), 'LaTeX subscript was not preserved');
-  check(!html.includes('\\mathcal{F}<em>t'), 'Markdown emphasis corrupted a formula');
+  check(html.includes('\\(x_s\\)'), 'LaTeX subscript was not preserved');
+  check(!html.includes('x<em>s'), 'Markdown emphasis corrupted a formula');
   check(/mathjax/i.test(html), 'MathJax was not loaded for the article');
 
   console.log('Math rendering regression check passed.');

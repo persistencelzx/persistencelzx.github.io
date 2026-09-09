@@ -1,5 +1,5 @@
 ---
-title: ORION: A Holistic End-to-End Autonomous Driving Framework by  Vision-Language Instructed Action Generation
+title: "ORION: A Holistic End-to-End Autonomous Driving Framework by  Vision-Language Instructed Action Generation"
 date: 2026-09-09 16:28:27
 mathjax: true
 tags:
@@ -26,13 +26,13 @@ categories:
 
 ## 2 Methodology
 
-![image-20260728005304266](/Users/persistencelzx/Library/Application Support/typora-user-images/image-20260728005304266.png)
+![image-20260728005304266](/images/orion-overview.png)
 
 ORION首先通过一个Vison Encoder对多视角图像进行编码，将编码后的token输入到QT-Former中，QT-Former利用其三种queries（Perception,Scene,History）来聚合长期视觉上下文和交通信息。随后将聚合后的token与语言指令token通过LLM结合（**推理空间**）生成一个规划token，再将该规划token输入到规划生成器中用于连接**推理空间和动作空间**，生成未来轨迹。
 
 ### 2.1 QT-Former
 
-![image-20260729104330417](/Users/persistencelzx/Library/Application Support/typora-user-images/image-20260729104330417.png)
+![image-20260729104330417](/images/orion-qt-former.png)
 
 本文引入了QT-Former用于处理多视角图像信息和融合历史上下文。QT-Former首先初始化三个Queries：Perception Queries（$Q_p \in \mathbb{R}^{N_p \times C_q }$）、Scene Queries（$Q_s \in \mathbb{R}^{N_s \times C_q}$）和History Queries（$Q_h\in \mathbb{R}^{N_h \times C_q}$ ）,其中$N_p,N_s,N_h$为token数，$C_q$为通道数。随后感知Queries和场景Queries在拼接后进行Self-Attention，用于交换信息，减少各自独立工作之间的信息割裂，完成后再通过索引将二者拆分开来。接着各自与经过Vision Encoder与3D位置编码处理后的图像特征进行Cross-Attention提取场景信息，其中的感知Queries被用于目标检测、交通状态识别等任务。
 
