@@ -38,68 +38,32 @@ ORION首先通过一个Vison Encoder对多视角图像进行编码，将编码�
 
 QT-Former通过一个长期记忆库来存储历史信息，其$M \in \mathbb{R}^{(N_h \times n)\times C_q}$。历史Queries首先与加入时间戳后的$M$进行Cross-Attention用于提取历史信息，之后再与当前场景Queries进行Cross-Attention读取当前场景信息（通过历史信息可以知道当前场景应重点关注的地方）。随后按照先进先出规则更新历史记忆库，最后将场景Queries和历史Queries送入到MLP中映射为LLM的推理空间。
 $$
-I_t
-\xrightarrow{\text{Vision Encoder}}
-F_m^t
-\\
-
-
-[Q_p,Q_s]
-\xrightarrow{\text{Self-Attention}}
-[Q_p',Q_s']
-
-\\
-[Q_p',Q_s']
-\xrightarrow{\text{Cross-Attention with }F_m^t}
-[\widetilde{Q}_p^t,\widetilde{Q}_s^t]
-\\
-Where:\widetilde{Q}_p^t
-\longrightarrow
+\begin{aligned}
+I_t &\xrightarrow{\text{Vision Encoder}} F_m^t \\
+[Q_p,Q_s] &\xrightarrow{\text{Self-Attention}} [Q_p',Q_s'] \\
+[Q_p',Q_s'] &\xrightarrow{\text{Cross-Attention with }F_m^t} [\widetilde{Q}_p^t,\widetilde{Q}_s^t] \\
+\widetilde{Q}_p^t &\longrightarrow
 \begin{cases}
 \text{目标检测},\\
 \text{交通状态},\\
 \text{运动预测}.
-\end{cases}
-\\
-Q_h
-\xrightarrow{\text{读取 Memory Bank}}
-Q_h'
-\\
-Q_h'
-\xrightarrow{\text{查询当前 }Q_s^t}
-\widehat{Q}_h^t
-\\
-\widehat{Q}_h^t
-\longrightarrow
-M_t
-\\
-Q_s^t,\widehat{Q}_h^t
-\xrightarrow{\mathrm{MLP}}
-x_s,x_h
-\\
-
-[x_s,x_h,x_q]
-\longrightarrow
-\mathrm{LLM}
-\longrightarrow
-\text{planning token}
-\\
-
-
-\text{planning token}
-\longrightarrow
-\text{Generative Planner}
-\longrightarrow
-\text{未来轨迹}
+\end{cases} \\
+Q_h &\xrightarrow{\text{读取 Memory Bank}} Q_h' \\
+Q_h' &\xrightarrow{\text{查询当前 }Q_s^t} \widehat{Q}_h^t \\
+\widehat{Q}_h^t &\longrightarrow M_t \\
+(Q_s^t,\widehat{Q}_h^t) &\xrightarrow{\mathrm{MLP}} (x_s,x_h) \\
+[x_s,x_h,x_q] &\longrightarrow \mathrm{LLM} \longrightarrow \text{planning token} \\
+\text{planning token} &\longrightarrow \text{Generative Planner} \longrightarrow \text{未来轨迹}
+\end{aligned}
 $$
 
 ### 2.2 LLM
 
-场景tokens$x_s$、历史tokens$x_h$和用户指令tokens$x_q$被一起输入到大模型中，与此同时，作者为 LLM 设计了一个规划问答模板，并在最后一个问答任务中引入特殊的规划 token \(s\)，用于将整个驾驶场景的理解与推理上下文汇聚到该 token 中。其形式化表示为：
+场景tokens$x_s$、历史tokens$x_h$和用户指令tokens$x_q$被一起输入到大模型中，与此同时，作者为 LLM 设计了一个规划问答模板，并在最后一个问答任务中引入特殊的规划 token $s$，用于将整个驾驶场景的理解与推理上下文汇聚到该 token 中。其形式化表示为：
 $$
 s \sim p(s \mid x_s, x_h, x_q, x_a)
 $$
-其中，\(x_a\) 表示 LLM 生成的回答。规划 token \(s\) 的嵌入表示将作为条件，用于控制后续的轨迹生成。
+其中，$x_a$ 表示 LLM 生成的回答。规划 token $s$ 的嵌入表示将作为条件，用于控制后续的轨迹生成。
 
 ### 2.3 Generative Planner
 
@@ -107,19 +71,19 @@ $$
 
 1. Planning tokens
 
-   输入$s$，经过一个MLP encoder得到\(p(z_s|s) = N(\mu_s,\sigma_s^2)\)，表示这个驾驶语义对应的动作潜变量分布。
+   输入$s$，经过一个MLP encoder得到$p(z_s \mid s) = \mathcal{N}(\mu_s,\sigma_s^2)$，表示这个驾驶语义对应的动作潜变量分布。
 
 2. 专家轨迹
 
-   训练时提供一个专家轨迹$t$用于指导Planning tokens，经过MLP得到\(p(z_t|t) = N(\mu_t,\sigma_t^2)\)，表示这条真实驾驶轨迹对应的动作潜变量分布。
+   训练时提供一个专家轨迹$t$用于指导Planning tokens，经过MLP得到$p(z_t \mid t) = \mathcal{N}(\mu_t,\sigma_t^2)$，表示这条真实驾驶轨迹对应的动作潜变量分布。
 
 ORION 假设：
 
-如果 LLM 理解正确，那么：\[ \text{语义} \approx \text{对应动作} \]
+如果 LLM 理解正确，那么：$\text{语义} \approx \text{对应动作}$
 
-因此：\[ p(z_s|s) \approx p(z_t|t) \]，使用 KL 散度：\[ \mathcal{L}_{vae} = D_{KL} ( p(z_s|s) || p(z_t|t) ) \]
+因此：$p(z_s \mid s) \approx p(z_t \mid t)$，使用 KL 散度：$\mathcal{L}_{\mathrm{VAE}} = D_{\mathrm{KL}}\!\left(p(z_s \mid s) \,\|\, p(z_t \mid t)\right)$
 
-得到动作 latent：\[ z \]之后使用 GRU decoder，论文采用 GenAD 中的 GRU decoder。
+得到动作 latent：$z$，之后使用 GRU decoder，论文采用 GenAD 中的 GRU decoder。
 
 > 流程：
 > $$
@@ -127,7 +91,7 @@ ORION 假设：
 > $$
 > 输出：
 > $$
-> \hat{\tau} = \{ (\hat{x}_1,\hat{y}_1), ... (\hat{x}_T,\hat{y}_T) 
+> \hat{\tau} = \{(\hat{x}_1,\hat{y}_1), \ldots, (\hat{x}_T,\hat{y}_T)\}
 > $$
 > 即未来轨迹。
 
